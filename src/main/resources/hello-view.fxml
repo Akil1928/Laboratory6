@@ -9,40 +9,35 @@
 
 <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelloController">
    <left>
-      <VBox prefHeight="669.0" prefWidth="217.0" style="-fx-background-color: #000001;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="694.0" prefWidth="320.0" style="-fx-background-color: #000001;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#Home" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="#24b938">
+            <Button mnemonicParsing="false" onAction="#Home" prefHeight="62.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="#24b938">
                <font>
-                  <Font name="Arial" size="30.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#dinamicOnAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Dinamic" textFill="#24b938">
+            <Button mnemonicParsing="false" onAction="#baseConverterOnAction" prefHeight="62.0" prefWidth="270.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Base Converter" textFill="#24b938">
                <font>
-                  <Font name="Arial" size="30.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#vectorOnAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Vector" textFill="#24b938">
+            <Button mnemonicParsing="false" onAction="#arithmeticConverterOnAction" prefHeight="62.0" prefWidth="360.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Arithmetic Converter" textFill="#24b938">
                <font>
-                  <Font name="Arial" size="30.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#probabilisticOnAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Probabilistic" textFill="#24b938">
+            <Button mnemonicParsing="false" onAction="#exitOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Salir" textFill="#24b938">
                <font>
-                  <Font name="Arial" size="30.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#Exit" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Salir" textFill="#24b938">
-               <font>
-                  <Font name="Arial" size="30.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Button>
          </children>
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="contentPane" prefHeight="769.0" prefWidth="816.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="contentPane" prefHeight="694.0" prefWidth="754.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
 
-         <Text fx:id="txtMessage" fill="#24b938" layoutX="4.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 3" textAlignment="CENTER" wrappingWidth="781.94921875">
+         <Text fx:id="txtMessage" fill="#24b938" layoutX="4.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Laboratory No. 6" textAlignment="CENTER" wrappingWidth="781.94921875">
             <font>
                <Font name="Arial" size="40.0" />
             </font>
