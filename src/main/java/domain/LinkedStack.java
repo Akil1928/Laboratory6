@@ -1,14 +1,23 @@
 package domain;
 
-public class LinkedStack implements Stack {
-    private Node top;// es un apuntador
-    private int counter; //cont elementos apilados
+public class LinkedStack<T> implements Stack<T> {
+    private Node<T> top;
+    private int counter;
 
-    public LinkedStack(){
+    private static class Node<T> {
+        public T data;
+        public Node<T> next;
+
+        public Node(T data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public LinkedStack() {
         this.top = null;
         this.counter = 0;
     }
-
 
     @Override
     public int size() {
@@ -23,62 +32,58 @@ public class LinkedStack implements Stack {
 
     @Override
     public boolean isEmpty() {
-        return top==null;
+        return top == null;
     }
 
     @Override
-    public Object peek() throws StackException {
-        if(isEmpty())
+    public T peek() throws StackException {
+        if (isEmpty())
             throw new StackException("Linked Stack is empty");
         return top.data;
     }
 
     @Override
-    public Object top() throws StackException {
-        if(isEmpty())
+    public T top() throws StackException {
+        if (isEmpty())
             throw new StackException("Linked Stack is empty");
         return top.data;
     }
 
     @Override
-    public void push(Object element) throws StackException {
-        Node newNode = new Node(element);
-        if(!isEmpty())
+    public void push(T element) throws StackException {
+        Node<T> newNode = new Node<>(element);
+        if (!isEmpty())
             newNode.next = top;
-        top = newNode; //le decimos a tope que apunte a newNode
-        this.counter++; //incremento el contador
+        top = newNode;
+        this.counter++;
     }
 
     @Override
-    public Object pop() throws StackException {
-        if(isEmpty())
+    public T pop() throws StackException {
+        if (isEmpty())
             throw new StackException("Linked Stack is empty");
-        Object topData = top.data;
-        top = top.next; //movemos top al sgte nodo
+        T topData = top.data;
+        top = top.next;
         counter--;
         return topData;
     }
 
     @Override
     public String toString() {
-        if(isEmpty()) return "Linked Stack is Empty";
-        String result="Linked Stack Content:\n";
-        try{
-            LinkedStack aux = new LinkedStack();
-            while(!isEmpty()){
-                result+=peek()+"\n";
+        if (isEmpty()) return "Linked Stack is Empty";
+        StringBuilder result = new StringBuilder("Linked Stack Content:\n");
+        LinkedStack<T> aux = new LinkedStack<>();
+        try {
+            while (!isEmpty()) {
+                result.append(peek()).append("\n");
                 aux.push(pop());
             }
-            //ahora debemos dejar la pila en su estado original
-            while(!aux.isEmpty()){
+            while (!aux.isEmpty()) {
                 push(aux.pop());
             }
-
-        }catch(StackException ex){
+        } catch (StackException ex) {
             System.out.println(ex.getMessage());
         }
-        return result;
+        return result.toString();
     }
-
-
 }

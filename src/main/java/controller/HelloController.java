@@ -1,41 +1,14 @@
-
-
-
 package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import ucr.lab.laboratory6.HelloApplication;
-
 import java.io.IOException;
+import javafx.scene.layout.BorderPane;
 
 public class HelloController {
-
-    @Deprecated
-    private void load(String form) {
-        try {
-            // Intenta cargar el FXML con una ruta completa
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/"+form));
-
-            // Asegúrate de manejar cualquier error de carga
-            if (fxmlLoader.getLocation() == null) {
-                System.err.println("No se puede encontrar el archivo FXML: " + form);
-                return;
-            }
-
-            this.bp.setCenter(fxmlLoader.load());
-        } catch (IOException e) {
-            e.printStackTrace(); // Muestra el stack trace completo
-            throw new RuntimeException("Error al cargar el FXML: " + form, e);
-        }
-    }
-    @FXML
-    private BorderPane bp;
-
     @FXML
     private AnchorPane contentPane;
 
@@ -43,29 +16,46 @@ public class HelloController {
     private Text txtMessage;
 
     @FXML
-    void Home(ActionEvent event) {
-        txtMessage.setText("Laboratory No. 3");
+    private void baseConverterOnAction(ActionEvent event) {
+        try {
+            System.out.println("Intentando cargar Base Converter...");
+            BorderPane view = FXMLLoader.load(getClass().getResource("/baseConverter.fxml"));
+            contentPane.getChildren().setAll(view);
+            System.out.println("Base Converter cargado exitosamente");
+        } catch (IOException e) {
+            System.out.println("Error al cargar Base Converter:");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void Home(ActionEvent event) {
+        txtMessage.setText("Laboratory No. 6");
         contentPane.getChildren().clear();
         contentPane.getChildren().add(txtMessage);
     }
 
-
     @FXML
-    void arithmeticConverterOnAction(ActionEvent event) {
+    private void arithmeticConverterOnAction(ActionEvent event) {
+        try {
+            System.out.println("Arithmetic Converter button clicked!");
 
+            BorderPane view = FXMLLoader.load(getClass().getResource("/arithmeticConverter.fxml"));
+            contentPane.getChildren().setAll(view);
+            System.out.println("Arithmetic Converter cargado exitosamente");
+        } catch (IOException e) {
+            System.out.println("Error al cargar Arithmetic Converter:");
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void baseConverterOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void exitOnAction(ActionEvent event) {
+    private void exitOnAction(ActionEvent event) {
         System.exit(0);
     }
-
 }
+
+
 
 
 
